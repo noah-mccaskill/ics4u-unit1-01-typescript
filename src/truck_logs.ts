@@ -7,21 +7,21 @@
  * Since:   2022-09-15
  */
 
+import promptSync from "prompt-sync";
 
-import promptSync from 'prompt-sync'
+const prompt = promptSync();
 
-const prompt = promptSync()
+const weight = 1100;
 
-const weight = 1100
+const quantity = 20;
 
-const quantity = 20
+const userInput = prompt("Enter a log length (0.25 m, 0.5 m, 1m):");
 
-const userInput = prompt('Enter a log length (0.25 m, 0.5 m, 1m):')
+const logLength = parseFloat(userInput);
+const maxLogs = weight / (quantity * logLength);
 
+console.log(
+  `\nThe truck is able to hold up to this number of logs: ${maxLogs}`
+);
 
-const logLength = parseFloat(userInput)
-const maxLogs = weight / (quantity * logLength)
-
-console.log(`\nThe truck is able to hold up to this number of logs: ${maxLogs}`)
-
-console.log('\nDone.')
+console.log("\nDone.");
